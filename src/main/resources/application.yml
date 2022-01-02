@@ -1,2 +1,27 @@
 server:
-  port: 8081
+  port: 8082
+
+spring:
+  application:
+    name: mon-domaine-metier
+  config:
+    import: optional:configserver:http://localhost:8888/
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/nt_mon_domaine_db
+    username: root
+    password:
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+
+app:
+  healty:
+    message: Je suis demarré - from app config

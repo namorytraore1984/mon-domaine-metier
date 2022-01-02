@@ -1,2 +1,22 @@
 server:
-  port: 8081
+  port: 8082
+
+db:
+  h2:
+    url: h2url
+    username: namory
+    password: nam_pass
+  mysql:
+    url: mysqlurl
+    username: bakary
+    password: bak_pass
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - info
+          - refresh
+          - health
